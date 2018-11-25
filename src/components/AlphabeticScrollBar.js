@@ -96,6 +96,7 @@ class AlphabeticScrollBar extends Component {
                         <Text style={{
                             ...styles.letter,
                             ...this.props.fontColor ? {color: this.props.fontColor} : {},
+                            ...this.props.font ? {fontFamily: this.props.font} : {},
                             fontSize: ResponsiveFontSize(this.props.isPortrait ? 2 : 1.6) * this.props.fontSizeMultiplier, 
                         }}>
                             {letter}
@@ -131,6 +132,7 @@ AlphabeticScrollBar.propTypes = {
     reverse: PropTypes.bool,
     isPortrait: PropTypes.bool,
     fontColor: PropTypes.string,
+    font: PropTypes.object,
     fontSizeMultiplier: PropTypes.number
 };
 

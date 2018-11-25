@@ -133,6 +133,7 @@ export default class AlphaScrollFlatList extends Component {
                         reverse={this.props.reverse} 
                         activeColor={this.props.activeColor}
                         fontColor={this.props.scrollBarColor}
+                        font={this.props.font}
                         fontSizeMultiplier={this.props.scrollBarFontSizeMultiplier}
                         onScroll={debounce(this.handleOnScroll.bind(this))} 
                         onScrollEnds={debounce(this.handleOnScrollEnds.bind(this))} 
