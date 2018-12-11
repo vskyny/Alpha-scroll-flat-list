@@ -25,6 +25,17 @@ export default class AlphaScrollFlatList extends Component {
         this.flashScrollIndicators = this.flashScrollIndicators.bind(this);
     }
 
+    shouldComponentUpdate (nextProps, nextState) {
+        if (this.props.hideSideBar !== nextProps.hideSideBar || this.state.activeLetter !== nextState.activeLetter || this.state.activeLetterViewTop !== nextState.activeLetterViewTop) {
+            return true
+        }
+        if (nextProps.contacts || nextProps.sections) {
+            console.log(nextProps.sections)
+            return true
+        }
+        return false
+    }
+
     //Forwarded flat list methods
     scrollToEnd (...params) {
         if (this.list)
@@ -133,7 +144,6 @@ export default class AlphaScrollFlatList extends Component {
                         reverse={this.props.reverse} 
                         activeColor={this.props.activeColor}
                         fontColor={this.props.scrollBarColor}
-                        font={this.props.font}
                         fontSizeMultiplier={this.props.scrollBarFontSizeMultiplier}
                         onScroll={debounce(this.handleOnScroll.bind(this))} 
                         onScrollEnds={debounce(this.handleOnScrollEnds.bind(this))} 
